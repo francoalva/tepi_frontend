@@ -10,6 +10,9 @@ import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import Snackbar from "@mui/material/Snackbar";
+import Avatar from "@mui/material/Avatar";
+import { deepOrange } from '@mui/material/colors';
+
 
 import * as API from "../services/Connection";
 
@@ -64,6 +67,7 @@ export const Grilla = (props) => {
               >
                 <Box sx={{ my: 3, mx: 2 }}>
                   <Grid container alignItems="center">
+                  <Avatar sx={{ bgcolor: deepOrange[500] }} variant="square"> ID {x.id}</Avatar>
                     <Grid alignItems="center" item xs>
                       <Typography gutterBottom variant="h4" component="div">
                         {x.DIS_nombre}
