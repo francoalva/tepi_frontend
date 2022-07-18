@@ -2,8 +2,11 @@
 Para ejecutar localmente ejecutamos lo siguiente en la interfaz de linea de comandos:
 
 1. Para instalar dependencias
+
     npm install 
+
 2. Para inicializar la aplicación
+
     npm start
 
 ## Observaciones
