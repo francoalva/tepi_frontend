@@ -1,8 +1,10 @@
 # Instrucciones 
 Para ejecutar localmente ejecutamos lo siguiente en la interfaz de linea de comandos:
-    
-    1. npm install #Para instalar dependencias
-    2. npm start #Para inicializar la aplicación
+
+1. Para instalar dependencias
+    npm install 
+2. Para inicializar la aplicación
+    npm start
 
 ## Observaciones
 Para un funcionamiento óptimo se requiere que se levante localmente la siguiente [API](https://github.com/francoalva/TEPI_APIRest).
