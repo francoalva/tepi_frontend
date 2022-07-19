@@ -6,12 +6,15 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Typography from "@mui/material/Typography";
-import Divider from '@mui/material/Divider';
+import Divider from "@mui/material/Divider";
 
 import * as API from "../services/Connection";
 import { Grilla } from "./Grilla";
+import { Grilla2 } from "./Grilla2";
 
-export const Filtro = () => {
+export const Filtro = (props) => {
+
+
   const [bodegas, setBodegas] = useState([]);
   const [bodega_actual, setBodega] = useState(0);
 
@@ -25,7 +28,12 @@ export const Filtro = () => {
     API.getAll(0).then(setBodegas);
     API.getAll(1).then(setMarcas);
     API.getAll(2).then(setModelos);
+
   }, []);
+
+  useEffect(() => {
+    setBodega(0);setModelo(0);setMarca(0);
+  }, [props.handleChange]);
 
   const cambiarBodega = (e) => {
     setBodega(e.target.value);
@@ -45,6 +53,10 @@ export const Filtro = () => {
 
   return (
     <div>
+
+      <br></br> <Divider />
+      <Typography gutterBottom align='left' variant="h6" component="div"> Filtros de Dispositivos</Typography>
+
       <Grid
         container
         direction="row"
@@ -69,7 +81,7 @@ export const Filtro = () => {
             ))}
           </Select>
         </FormControl>
-        
+
         <FormControl sx={{ m: 1, minWidth: 80 }}>
           <InputLabel id="input_marca">Marca</InputLabel>
           <Select
@@ -108,10 +120,23 @@ export const Filtro = () => {
           </Select>
         </FormControl>
       </Grid>
-
-      <br></br> <Divider /> 
-      <Typography gutterBottom align='left' variant="h6" component="div"> Dispositivos</Typography>
-           
+      <br></br> <Divider />
+      <Typography gutterBottom align="left" variant="h6" component="div">
+        {" "}
+        Dispositivos
+      </Typography>
+      <Grilla2
+        bodega={bodega_actual}
+        marca={marca_actual}
+        modelo={modelo_actual}
+      >
+        {" "}
+      </Grilla2>
+      <br></br> <Divider />
+      <Typography gutterBottom align="left" variant="h6" component="div">
+        {" "}
+        Dispositivos (vista opcional)
+      </Typography>
       <Grilla
         id="grillas"
         bodega={bodega_actual}

@@ -40,5 +40,23 @@ export async function getDispositivos(bodega,marca,modelo){
     }
 }
 
+export async function SubmitDispositivo(bodega,modelo,dispositivo){
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ BOD_id : bodega, MOD_id:modelo, DIS_nombre:dispositivo  })
+    };
+
+    try{
+        const URL = API_URL+'/api/dispositivo';
+        const response = await fetch (URL, requestOptions);
+        const data = await response.json();
+        return data;
+    }catch(error){
+        console.log(error);
+    }
+}
+
 // '${API_URL}/marcas/${variable}'
 
